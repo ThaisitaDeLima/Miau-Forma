@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miau & Forma Ateliê | Cerâmica Artesanal</title>
+    <title>Miau & Forma Ateliê | Cerâmica Fria Artesanal</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -20,309 +20,361 @@
             theme: {
                 extend: {
                     colors: {
-                        'clay': '#C18C5D',
-                        'clay-dark': '#8B5E3C',
-                        'sand': '#F5F2EB',
-                        'charcoal': '#2C2C2C',
-                        'sage': '#9CAF88'
+                        'brown-main': '#8B5E3C', /* Marrom principal */
+                        'brown-dark': '#5D4037', /* Marrom escuro para texto forte */
+                        'brown-light': '#D7CCC8', /* Marrom claro para fundos */
+                        'bg-white': '#FAFAFA',    /* Branco levemente off-white para conforto visual */
+                        'pure-black': '#1A1A1A',  /* Preto para textos */
                     },
                     fontFamily: {
                         'serif': ['"Playfair Display"', 'serif'],
                         'sans': ['"Plus Jakarta Sans"', 'sans-serif'],
                     },
                     backgroundImage: {
-                        'mesh': 'radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(189,100%,56%,0.1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(340,100%,76%,0.1) 0px, transparent 50%), radial-gradient(at 80% 50%, hsla(30,100%,77%,0.3) 0px, transparent 50%), radial-gradient(at 0% 100%, hsla(22,100%,77%,1) 0px, transparent 50%), radial-gradient(at 80% 100%, hsla(242,100%,70%,0) 0px, transparent 50%), radial-gradient(at 0% 0%, hsla(343,100%,76%,0) 0px, transparent 50%)',
+                        'mesh': 'radial-gradient(at 40% 20%, hsla(28,100%,85%,0.3) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(189,100%,90%,0.3) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(340,100%,90%,0.3) 0px, transparent 50%)',
                     }
                 }
             }
         }
-
-        // Garante que vá para o topo
-        window.onload = function() {
-            window.scrollTo(0, 0);
-        }
     </script>
 
     <style>
-        /* CSS Customizado para Efeitos Especiais */
+        /* CSS Customizado */
         body {
-            background-color: #F5F2EB;
+            background-color: #FAFAFA;
+            color: #1A1A1A;
             overflow-x: hidden;
         }
 
-        /* Efeito de Ruído/Granulação (Textura de Cerâmica) */
+        /* Script de Scroll Topo */
+        html, body { height: 100%; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        /* Textura de Papel/Cerâmica */
         .noise-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 50;
-            opacity: 0.05;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 50; opacity: 0.04;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
         }
 
-        /* Blobs Animados no Fundo */
+        /* Blobs Sutis */
         .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
+            position: absolute; border-radius: 50%;
+            filter: blur(80px); z-index: -1; opacity: 0.6;
             animation: float 10s infinite alternate;
         }
-
         @keyframes float {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, -50px) scale(1.1); }
+            100% { transform: translate(20px, -20px) scale(1.05); }
         }
 
-        /* Efeito Parallax Suave nas Imagens */
-        .parallax-img {
-            transition: transform 0.5s cubic-bezier(0,0,0,1);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #F5F2EB;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #C18C5D;
-            border-radius: 4px;
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FAFAFA; }
+        ::-webkit-scrollbar-thumb { background: #8B5E3C; border-radius: 4px; }
     </style>
+
+    <script>
+        if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+        window.onload = function() { window.scrollTo(0, 0); }
+    </script>
 </head>
-<body class="text-charcoal font-sans antialiased selection:bg-clay selection:text-white">
+<body class="font-sans antialiased selection:bg-brown-main selection:text-white">
 
     <div class="noise-overlay"></div>
 
     <div class="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div class="blob bg-clay/30 w-96 h-96 top-0 -left-20"></div>
-        <div class="blob bg-sage/30 w-80 h-80 bottom-0 right-0 animation-delay-2000"></div>
+        <div class="blob bg-brown-light w-96 h-96 top-0 -left-20"></div>
+        <div class="blob bg-gray-200 w-80 h-80 bottom-0 right-0 animation-delay-2000"></div>
     </div>
 
     <header class="fixed w-full top-0 z-40 transition-all duration-300" id="navbar">
-        <div class="absolute inset-0 bg-sand/80 backdrop-blur-md border-b border-white/20 shadow-sm"></div>
+        <div class="absolute inset-0 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm"></div>
         <div class="container mx-auto px-6 py-4 relative flex justify-between items-center">
-            <a href="#" class="font-serif text-2xl font-bold tracking-tighter text-charcoal hover:text-clay transition-colors">
-                Miau & Forma<span class="text-clay text-4xl leading-[0]">.</span>
+            <a href="#" class="font-serif text-2xl font-bold tracking-tighter text-pure-black hover:text-brown-main transition-colors">
+                Miau & Forma<span class="text-brown-main text-4xl leading-[0]">.</span>
             </a>
 
-            <nav class="hidden md:flex space-x-8 items-center">
-                <a href="#sobre" class="text-sm font-semibold tracking-wide hover:text-clay transition-colors">O ATELIÊ</a>
-                <a href="#servicos" class="text-sm font-semibold tracking-wide hover:text-clay transition-colors">CRIAÇÕES</a>
-                <a href="#contato" class="px-6 py-2 bg-charcoal text-white text-sm rounded-full hover:bg-clay transition-all hover:scale-105 duration-300 shadow-lg">CONTATO</a>
+            <nav class="hidden md:flex space-x-8 items-center text-sm font-semibold tracking-wide text-gray-800">
+                <a href="#sobre" class="hover:text-brown-main transition-colors">QUEM SOMOS</a>
+                <a href="#sobre-mim" class="hover:text-brown-main transition-colors">SOBRE MIM</a>
+                <a href="#catalogo" class="hover:text-brown-main transition-colors">CATÁLOGO</a>
+                <a href="#info" class="hover:text-brown-main transition-colors">INFORMAÇÕES</a>
+                <a href="#contato" class="px-6 py-2 bg-brown-main text-white rounded-full hover:bg-brown-dark transition-all hover:scale-105 duration-300 shadow-lg">CONTATO</a>
             </nav>
 
-            <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
+            <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none text-brown-main">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
         
-        <div id="mobile-menu" class="fixed inset-0 bg-sand z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 md:hidden">
-            <button id="close-menu" class="absolute top-6 right-6 text-3xl"><i class="fas fa-times"></i></button>
-            <a href="#sobre" class="text-3xl font-serif mobile-link">O Ateliê</a>
-            <a href="#servicos" class="text-3xl font-serif mobile-link">Criações</a>
-            <a href="#contato" class="text-3xl font-serif mobile-link">Contato</a>
+        <div id="mobile-menu" class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 md:hidden">
+            <button id="close-menu" class="absolute top-6 right-6 text-3xl text-brown-main"><i class="fas fa-times"></i></button>
+            <a href="#sobre" class="text-2xl font-serif mobile-link text-pure-black">Quem Somos</a>
+            <a href="#sobre-mim" class="text-2xl font-serif mobile-link text-pure-black">Sobre Mim</a>
+            <a href="#catalogo" class="text-2xl font-serif mobile-link text-pure-black">Catálogo</a>
+            <a href="#info" class="text-2xl font-serif mobile-link text-pure-black">Informações</a>
+            <a href="#contato" class="text-2xl font-serif mobile-link text-pure-black">Contato</a>
         </div>
     </header>
 
-    <section class="relative min-h-screen flex items-center justify-center pt-32 md:pt-40 overflow-hidden">
+    <section class="relative min-h-screen flex items-center justify-center pt-32 md:pt-20 overflow-hidden">
         <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-up" data-aos-duration="1000">
-                <span class="inline-block px-4 py-1 rounded-full border border-charcoal/20 text-xs font-semibold tracking-widest uppercase mb-6 bg-white/50 backdrop-blur-sm">Feito à mão • Feito com alma</span>
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-tight mb-6">
-                    A arte de moldar <br>
-                    <span class="italic text-clay">sentimentos.</span>
+                <span class="inline-block px-4 py-1 rounded-full border border-brown-main/30 text-xs font-bold tracking-widest uppercase mb-6 text-brown-main bg-white">Ateliê Miau & Forma</span>
+                <h1 class="font-serif text-5xl md:text-7xl leading-tight mb-6 text-pure-black">
+                    Peças artesanais <br>
+                    feitas à mão, <br>
+                    <span class="italic text-brown-main">com aconchego e carinho.</span>
                 </h1>
-                <p class="text-lg md:text-xl text-charcoal/70 mb-8 max-w-md leading-relaxed">
-                    No Miau & Forma, transformamos a cerâmica em peças únicas que harmonizam design aconchegante com sensibilidade artesanal.
+                <p class="text-lg text-gray-700 mb-8 max-w-md leading-relaxed">
+                    Transformamos cerâmica fria em peças que harmonizam design aconchegante com sensibilidade artesanal.
                 </p>
                 <div class="flex gap-4">
-                    <a href="#servicos" class="group relative px-8 py-4 bg-charcoal text-white overflow-hidden rounded-full shadow-xl transition-all hover:-translate-y-1">
-                        <span class="relative z-10 font-semibold group-hover:text-sand transition-colors">Ver Coleções</span>
-                        <div class="absolute inset-0 bg-clay transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
+                    <a href="#catalogo" class="group relative px-8 py-4 bg-pure-black text-white overflow-hidden rounded-full shadow-xl transition-all hover:-translate-y-1">
+                        <span class="relative z-10 font-semibold group-hover:text-white transition-colors">Ver Coleções</span>
+                        <div class="absolute inset-0 bg-brown-main transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
                     </a>
                 </div>
             </div>
 
             <div class="relative" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                <div class="relative z-10 rounded-t-[10rem] rounded-b-[2rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-all duration-700 ease-out h-[500px] w-full object-cover group">
+                <div class="relative z-10 rounded-full overflow-hidden shadow-2xl h-[500px] w-full md:w-[400px] mx-auto border-8 border-white object-cover group">
                     <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=1000&auto=format&fit=crop" alt="Cerâmica Artesanal" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 </div>
-                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-clay/20 rounded-full blur-2xl -z-10"></div>
+                <div class="absolute top-10 right-10 md:right-32 w-20 h-20 bg-brown-main/20 rounded-full blur-xl -z-10"></div>
             </div>
         </div>
     </section>
 
-    <section id="sobre" class="py-24 bg-white/40 backdrop-blur-sm relative">
+    <section id="sobre" class="py-20 bg-white relative">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="relative order-2 md:order-1" data-aos="zoom-in-up">
-                    <div class="grid grid-cols-2 gap-4">
-                        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=600&auto=format&fit=crop" class="rounded-2xl shadow-lg mt-12 w-full h-64 object-cover" alt="Mãos moldando argila">
-                        <img src="https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?q=80&w=600&auto=format&fit=crop" class="rounded-2xl shadow-lg w-full h-64 object-cover" alt="Peças de cerâmica">
-                    </div>
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                <div data-aos="fade-up">
+                    <h2 class="font-serif text-4xl text-brown-main mb-6">Quem Somos</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        No <strong>Ateliê Miau & Forma</strong>, criamos peças em <strong>cerâmica fria</strong> que unem delicadeza, funcionalidade e autenticidade. Inspirados nos detalhes do cotidiano, acreditamos que cada objeto artesanal pode transformar um ambiente — e até um momento.
+                    </p>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-8">
+                        Cada criação é moldada à mão, com calma e intenção, para levar beleza e presença ao seu dia. Cada peça leva:
+                    </p>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-gray-800"><i class="fas fa-check text-brown-main"></i> Tempo</li>
+                        <li class="flex items-center gap-3 text-gray-800"><i class="fas fa-check text-brown-main"></i> Presença</li>
+                        <li class="flex items-center gap-3 text-gray-800"><i class="fas fa-check text-brown-main"></i> Cuidado</li>
+                        <li class="flex items-center gap-3 text-gray-800"><i class="fas fa-check text-brown-main"></i> Intenção</li>
+                    </ul>
                 </div>
                 
-                <div class="order-1 md:order-2" data-aos="fade-up">
-                    <h2 class="font-serif text-4xl md:text-5xl mb-6">Autenticidade em <br><span class="text-clay italic">cada detalhe</span></h2>
-                    <p class="text-charcoal/80 text-lg leading-relaxed mb-6">
-                        No <strong>Ateliê Miau & Forma</strong>, dedicamo-nos à criação artesanal de peças únicas e exclusivas. Cada item é feito à mão, integrando funcionalidade e estética com um toque pessoal.
-                    </p>
-                    <p class="text-charcoal/80 text-lg leading-relaxed mb-6">
-                        Inspirado nos detalhes do cotidiano, refletimos nossa paixão pela arte e pela verdade dos materiais. Nossas peças não são apenas objetos; são convites para momentos de pausa e beleza.
-                    </p>
-                    <div class="flex items-center gap-4 mt-8">
-                        <div class="h-px bg-charcoal/20 flex-1"></div>
-                        <span class="font-serif italic text-2xl text-clay">Miau & Forma</span>
+                <div class="bg-gray-50 p-10 rounded-3xl border border-gray-100 shadow-sm" data-aos="fade-left">
+                    <h3 class="font-serif text-2xl text-pure-black mb-6 text-center">Nossa Essência</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="px-4 py-2 bg-white border border-brown-main/20 rounded-full text-brown-main text-sm font-semibold">Artesanal</span>
+                        <span class="px-4 py-2 bg-white border border-brown-main/20 rounded-full text-brown-main text-sm font-semibold">Fofo</span>
+                        <span class="px-4 py-2 bg-white border border-brown-main/20 rounded-full text-brown-main text-sm font-semibold">Minimalista</span>
+                        <span class="px-4 py-2 bg-white border border-brown-main/20 rounded-full text-brown-main text-sm font-semibold">Acolhedor</span>
+                        <span class="px-4 py-2 bg-white border border-brown-main/20 rounded-full text-brown-main text-sm font-semibold">Inspirado em pets</span>
+                        <span class="px-4 py-2 bg-white border border-brown-main/20 rounded-full text-brown-main text-sm font-semibold">Funcional</span>
+                        <span class="px-4 py-2 bg-white border border-brown-main/20 rounded-full text-brown-main text-sm font-semibold">Decorativo</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="servicos" class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 bg-mesh opacity-30 z-0"></div>
+    <section id="sobre-mim" class="py-20 bg-[#F7F5F3]">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-10 bg-white p-8 md:p-12 rounded-[3rem] shadow-sm border border-gray-100" data-aos="zoom-in">
+                <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 relative">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=500&auto=format&fit=crop" alt="Thaís" class="w-full h-full object-cover rounded-full border-4 border-white shadow-lg">
+                    <div class="absolute bottom-4 right-4 bg-brown-main text-white p-2 rounded-full shadow-md"><i class="fas fa-heart"></i></div>
+                </div>
+                <div class="text-center md:text-left">
+                    <h2 class="font-serif text-3xl md:text-4xl text-brown-main mb-4">Sobre Mim</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                        Sou a <strong>Thaís</strong>, estudante de Psicologia, apaixonada por animais e por tudo que me faz sentir leve e feliz.
+                    </p>
+                    <p class="text-gray-700 text-lg leading-relaxed">
+                        O Miau & Forma nasceu da vontade de transformar a arte em algo aconchegante para outras pessoas. Cada peça carrega um pedacinho do meu carinho — e, espero, do seu também.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo" class="py-24 relative overflow-hidden bg-white">
+        <div class="absolute inset-0 bg-mesh opacity-50 z-0"></div>
 
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16" data-aos="fade-down">
-                <span class="text-xs font-bold tracking-widest uppercase text-clay mb-2 block">Nossas Coleções</span>
-                <h2 class="font-serif text-4xl md:text-5xl">O que criamos</h2>
+                <span class="text-xs font-bold tracking-widest uppercase text-brown-main mb-2 block">Feito com carinho</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-pure-black">Catálogo</h2>
+                <p class="mt-4 text-gray-600">Peças pensadas para durar e tocar o coração.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="group relative bg-white/60 backdrop-blur-xl p-8 rounded-[2rem] border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden" data-aos="fade-up" data-aos-delay="0">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-clay/10 rounded-full blur-2xl -mr-16 -mt-16 transition-all group-hover:bg-clay/20"></div>
-                    <div class="h-12 w-12 bg-charcoal text-white rounded-full flex items-center justify-center mb-6 text-lg group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-leaf"></i>
+            <div class="mb-16">
+                <h3 class="font-serif text-2xl text-brown-main mb-8 border-b border-gray-200 pb-2 inline-block">Velas & Acessórios</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow" data-aos="fade-up">
+                        <div class="h-48 bg-gray-100 rounded-xl mb-4 overflow-hidden">
+                             <img src="https://images.unsplash.com/photo-1605651202724-9b4dc63b584d?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform" alt="Bandejinha Gato">
+                        </div>
+                        <h4 class="font-serif text-xl mb-2 text-pure-black">Bandejinha com gatinho</h4>
+                        <p class="text-sm text-gray-600">Mini bandeja com gatinho na borda. Ideal para velas, joias ou decoração temática.</p>
                     </div>
-                    <h3 class="font-serif text-2xl mb-3">Peças Decorativas</h3>
-                    <p class="text-charcoal/70 mb-6">Criações que embelezam e personalizam qualquer espaço, trazendo vida e textura para o ambiente.</p>
-                    <div class="w-full h-48 rounded-xl overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1578749556924-d9953818502a?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Decorativo">
-                    </div>
-                </div>
 
-                <div class="group relative bg-white/60 backdrop-blur-xl p-8 rounded-[2rem] border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-sage/20 rounded-full blur-2xl -mr-16 -mt-16 transition-all group-hover:bg-sage/30"></div>
-                    <div class="h-12 w-12 bg-charcoal text-white rounded-full flex items-center justify-center mb-6 text-lg group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-mug-hot"></i>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-48 bg-gray-100 rounded-xl mb-4 overflow-hidden">
+                             <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform" alt="Cumbucas">
+                        </div>
+                        <h4 class="font-serif text-xl mb-2 text-pure-black">Cumbucas (Grande/Média)</h4>
+                        <p class="text-sm text-gray-600">Perfeitas para velas, joias ou objetos decorativos. Versáteis e funcionais.</p>
                     </div>
-                    <h3 class="font-serif text-2xl mb-3">Peças Funcionais</h3>
-                    <p class="text-charcoal/70 mb-6">Objetos úteis que trazem charme ao dia a dia. Canecas, pratos e tigelas para usar e amar.</p>
-                    <div class="w-full h-48 rounded-xl overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1596547608886-c5e32400508e?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Funcional">
-                    </div>
-                </div>
 
-                <div class="group relative bg-white/60 backdrop-blur-xl p-8 rounded-[2rem] border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-200/30 rounded-full blur-2xl -mr-16 -mt-16 transition-all group-hover:bg-orange-200/40"></div>
-                    <div class="h-12 w-12 bg-charcoal text-white rounded-full flex items-center justify-center mb-6 text-lg group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl mb-3">Coleções Especiais</h3>
-                    <p class="text-charcoal/70 mb-6">Séries exclusivas com design temático e artesanal. Arte pura para colecionadores.</p>
-                    <div class="w-full h-48 rounded-xl overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1616489160938-16c68e1c6b63?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Especiais">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                        <div class="h-48 bg-gray-100 rounded-xl mb-4 overflow-hidden">
+                             <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform" alt="Gato Escultura">
+                        </div>
+                        <h4 class="font-serif text-xl mb-2 text-pure-black">Gato & Shih-tzu</h4>
+                        <p class="text-sm text-gray-600">Esculturas minimalistas inspiradas nos pets. Servem como suporte de vela ou decoração.</p>
                     </div>
                 </div>
             </div>
+
+            <div>
+                <h3 class="font-serif text-2xl text-brown-main mb-8 border-b border-gray-200 pb-2 inline-block">Incensários & Decor</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow" data-aos="fade-up">
+                        <div class="h-48 bg-gray-100 rounded-xl mb-4 overflow-hidden">
+                             <img src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform" alt="Pata de Gato">
+                        </div>
+                        <h4 class="font-serif text-xl mb-2 text-pure-black">Incensário Pata de Gato</h4>
+                        <p class="text-sm text-gray-600">Incensário delicado com textura de patinha. Perfeito para quem ama pets e autocuidado.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-48 bg-gray-100 rounded-xl mb-4 overflow-hidden">
+                             <img src="https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform" alt="Vaso">
+                        </div>
+                        <h4 class="font-serif text-xl mb-2 text-pure-black">Vaso de Flor / Vasilha</h4>
+                        <p class="text-sm text-gray-600">Peça elegante e multifuncional para flores, arranjos ou utilidades domésticas.</p>
+                    </div>
+
+                    <div class="bg-brown-main/10 p-6 rounded-2xl border border-brown-main/20 flex flex-col justify-center items-center text-center" data-aos="zoom-in" data-aos-delay="200">
+                        <h4 class="font-serif text-2xl mb-4 text-brown-main">Peça Personalizada</h4>
+                        <p class="text-sm text-gray-700 mb-6">Quer algo único? Envie referências, fotos e cores desejadas.</p>
+                        <a href="https://wa.me/5551996214639" target="_blank" class="px-6 py-3 bg-white text-brown-main border border-brown-main rounded-full font-bold text-sm hover:bg-brown-main hover:text-white transition-all">
+                            <i class="fab fa-whatsapp"></i> Personalizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section class="relative py-32 bg-fixed bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=2000&auto=format&fit=crop');">
-        <div class="absolute inset-0 bg-black/40"></div>
-        <div class="relative z-10 text-center text-white px-6" data-aos="zoom-in">
-            <h2 class="font-serif text-4xl md:text-6xl mb-6">Leve arte para sua casa</h2>
-            <p class="text-lg md:text-xl opacity-90 mb-10 max-w-2xl mx-auto">Peças que contam histórias e aquecem o coração.</p>
-            <a href="https://wa.me/5551996214639" target="_blank" class="inline-block bg-white text-charcoal px-10 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-clay hover:text-white transition-all duration-300 shadow-2xl transform hover:scale-105">
-                <i class="fab fa-whatsapp mr-2"></i> Encomendar Agora
+    <section class="py-20 bg-pure-black text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-serif text-3xl md:text-4xl mb-6">Sua ideia, nossa arte.</h2>
+            <p class="text-white/70 max-w-2xl mx-auto mb-10 text-lg">
+                Todas as peças podem ser personalizadas. Basta enviar referências, fotos inspiracionais e detalhes específicos.<br>
+                <span class="text-sm text-white/50 block mt-2">*Alterações só podem ser solicitadas antes do início da produção.</span>
+            </p>
+            <a href="https://wa.me/5551996214639" target="_blank" class="inline-block bg-[#25D366] text-white px-8 py-4 rounded-full font-bold hover:bg-[#128C7E] transition-all transform hover:scale-105 shadow-xl">
+                <i class="fab fa-whatsapp text-xl mr-2"></i> Enviar Inspiração via WhatsApp
             </a>
         </div>
     </section>
 
-    <footer id="contato" class="bg-charcoal text-sand relative pt-20 pb-10 overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <section id="info" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 
-                <div class="space-y-6">
-                    <h3 class="font-serif text-3xl text-white">Miau & Forma<span class="text-clay">.</span></h3>
-                    <p class="text-white/60 text-sm leading-relaxed">
-                        Cerâmica artesanal feita com paixão, integrando funcionalidade e estética no coração de cada pessoa.
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="text-clay font-bold uppercase tracking-widest text-xs mb-6">Contato</h4>
-                    <ul class="space-y-4 text-white/80">
-                        <li class="flex items-start gap-3 hover:text-white transition-colors">
-                            <span class="mt-1"><i class="far fa-envelope"></i></span>
-                            <a href="mailto:thais.dlimaprofissional@gmail.com" class="break-all">thais.dlimaprofissional@gmail.com</a>
-                        </li>
-                        
-                        <li class="transition-colors group">
-                            <a href="https://wa.me/5551996214639" target="_blank" class="flex items-start gap-3 hover:text-white">
-                                <span class="mt-1 text-green-400 group-hover:text-green-300 transition-colors"><i class="fab fa-whatsapp text-lg"></i></span>
-                                <span>+55 51 99621-4639</span>
-                            </a>
-                        </li>
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-brown-main">
+                    <h4 class="font-serif text-xl mb-4 flex items-center gap-2"><i class="far fa-clock text-brown-main"></i> Prazos</h4>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li><strong>Catálogo:</strong> 5-10 dias (mais rápido)</li>
+                        <li><strong>Sob Encomenda:</strong> 5-10 dias</li>
+                        <li><strong>Personalizadas:</strong> 10-15 dias úteis</li>
                     </ul>
                 </div>
 
-                <div>
-                    <h4 class="text-clay font-bold uppercase tracking-widest text-xs mb-6">Endereço</h4>
-                    <p class="text-white/80 leading-relaxed mb-4">
-                        Acesso Rubem Guilherme Kaempf, 55<br>
-                        Entrada Rio Pardinho<br>
-                        Santa Cruz do Sul - RS<br>
-                        CEP 96817-000
-                    </p>
-                    <a href="https://maps.google.com/?q=Acesso+Rubem+Guilherme+Kaempf,55+Santa+Cruz+do+Sul" target="_blank" class="text-xs border-b border-clay text-clay pb-1 hover:text-white hover:border-white transition-all">VER NO MAPA -></a>
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-brown-main">
+                    <h4 class="font-serif text-xl mb-4 flex items-center gap-2"><i class="fas fa-truck text-brown-main"></i> Entregas</h4>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li><strong>Santa Cruz do Sul:</strong> Entrega local</li>
+                        <li><strong>Retirada:</strong> No ateliê (agendada)</li>
+                        <li><strong>Outras cidades:</strong> Correios / Transportadora</li>
+                    </ul>
                 </div>
 
-                <div>
-                    <h4 class="text-clay font-bold uppercase tracking-widest text-xs mb-6">Horários</h4>
-                    <ul class="space-y-2 text-white/80">
-                        <li class="flex justify-between border-b border-white/10 pb-2">
-                            <span>Seg - Sex</span>
-                            <span>08:00 - 19:00</span>
-                        </li>
-                        <li class="flex justify-between border-b border-white/10 pb-2 opacity-50">
-                            <span>Sáb - Dom</span>
-                            <span>Fechado</span>
-                        </li>
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-brown-main">
+                    <h4 class="font-serif text-xl mb-4 flex items-center gap-2"><i class="fas fa-wallet text-brown-main"></i> Pagamento</h4>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>Pix</li>
+                        <li>Dinheiro</li>
+                        <li>Cartão (pelo catálogo)</li>
                     </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-brown-main">
+                    <h4 class="font-serif text-xl mb-4 flex items-center gap-2"><i class="fas fa-ban text-brown-main"></i> Cancelamento</h4>
+                    <p class="text-sm text-gray-600">
+                        Pode cancelar antes do início da produção.<br>
+                        Após começar, há uma <strong>taxa de 15%</strong>.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato" class="bg-white border-t border-gray-200 relative pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-12 items-center text-center md:text-left">
+                
+                <div class="space-y-4">
+                    <h3 class="font-serif text-3xl text-pure-black">Miau & Forma<span class="text-brown-main">.</span></h3>
+                    <p class="text-gray-500 text-sm">Cerâmica fria artesanal.</p>
+                </div>
+
+                <div class="text-center">
+                    <a href="https://wa.me/5551996214639" target="_blank" class="inline-block px-8 py-3 bg-brown-main text-white rounded-full hover:bg-brown-dark transition-colors shadow-lg">
+                        Chamar no WhatsApp
+                    </a>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end">
+                    <a href="https://instagram.com/atelie_miaueforma" target="_blank" class="text-gray-600 hover:text-brown-main transition-colors text-lg mb-2">
+                        <i class="fab fa-instagram"></i> @atelie_miaueforma
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-brown-main transition-colors text-sm">
+                        www.miaueforma.com
+                    </a>
+                    <p class="text-gray-400 text-sm mt-2">Santa Cruz do Sul – RS</p>
                 </div>
             </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-white/40">
-                <p>© 2025 Miau & Forma Ateliê. Todos os direitos reservados.</p>
-                <p class="mt-2 md:mt-0">Design Moderno & Artesanal</p>
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+                <p>Feito à mão com carinho.</p>
+                <p class="mt-2 md:mt-0">© 2025 — Feito por @thays.dlima</p>
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inicializar AOS (Animações no Scroll)
         AOS.init({
             once: true,
-            offset: 100,
+            offset: 80,
             duration: 800,
             easing: 'ease-out-cubic',
         });
 
-        // Script Menu Mobile
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         const closeBtn = document.getElementById('close-menu');
@@ -339,12 +391,9 @@
 
         btn.addEventListener('click', toggleMenu);
         closeBtn.addEventListener('click', toggleMenu);
-        
-        links.forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
+        links.forEach(link => { link.addEventListener('click', toggleMenu); });
 
-        // Efeito Glassmorphism na Navbar ao rolar
+        // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
