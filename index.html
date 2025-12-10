@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./miaueforma-favicon.ico" type="image/x-icon">
-    <title>Miau & Forma Ateliê | Cerâmica Fria Artesanal</title>
+    <title>Ateliê Miau & Forma | Cerâmica Fria Artesanal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     
     <script>
         tailwind.config = {
@@ -70,6 +72,17 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #FAFAFA; }
         ::-webkit-scrollbar-thumb { background: #8B5E3C; border-radius: 4px; }
+
+        /* External Link Style */
+        .external-link {
+            text-decoration: underline;
+        }
+
+        .external-link i {
+            margin-left: 0.2em;
+            font-size: 0.9em;
+        }
+
     </style>
 
     <script>
@@ -92,7 +105,7 @@
         <div class="absolute inset-0 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm"></div>
         <div class="container mx-auto px-6 py-4 relative flex justify-between items-center">
             <a href="#" class="font-serif text-2xl font-bold tracking-tighter text-pure-black hover:text-brown-main transition-colors">
-                Miau & Forma<span class="text-brown-main text-4xl leading-[0]">.</span>
+                Ateliê Miau & Forma<span class="text-brown-main text-4xl leading-[0]">.</span>
             </a>
 
             <nav class="hidden md:flex space-x-8 items-center text-sm font-semibold tracking-wide text-gray-800">
@@ -187,7 +200,7 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center gap-10 bg-white p-8 md:p-12 rounded-[3rem] shadow-sm border border-gray-100" data-aos="zoom-in">
                 <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 relative">
-                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=500&auto=format&fit=crop" alt="Thaís" class="w-full h-full object-cover rounded-full border-4 border-white shadow-lg">
+                    <img src="./thais-photo.jpg" alt="Thaís" class="w-full h-full object-cover rounded-full border-4 border-white shadow-lg">
                     <div class="absolute bottom-4 right-4 bg-brown-main text-white p-2 rounded-full shadow-md"><i class="fas fa-heart"></i></div>
                 </div>
                 <div class="text-center md:text-left">
@@ -196,7 +209,7 @@
                         Sou a <strong>Thaís</strong>, estudante de Psicologia, apaixonada por animais e por tudo que me faz sentir leve e feliz.
                     </p>
                     <p class="text-gray-700 text-lg leading-relaxed">
-                        O Miau & Forma nasceu da vontade de transformar a arte em algo aconchegante para outras pessoas. Cada peça carrega um pedacinho do meu carinho — e, espero, do seu também.
+                        O Miau & Forma nasceu da vontade de transformar a arte em algo aconchegante para outras pessoas. Cada peça carrega um pedacinho do meu carinho. Espero que do seu também.
                     </p>
                 </div>
             </div>
@@ -337,7 +350,7 @@
             <div class="grid md:grid-cols-3 gap-12 mb-12 items-center text-center md:text-left">
                 
                 <div class="space-y-4">
-                    <h3 class="font-serif text-3xl text-pure-black">Miau & Forma<span class="text-brown-main">.</span></h3>
+                    <h3 class="font-serif text-3xl text-pure-black">Ateliê Miau & Forma<span class="text-brown-main">.</span></h3>
                     <p class="text-gray-500 text-sm">Cerâmica fria artesanal.</p>
                 </div>
 
@@ -352,21 +365,22 @@
                         <i class="fab fa-instagram"></i> @atelie_miaueforma
                     </a>
                     <a href="#" class="text-gray-600 hover:text-brown-main transition-colors text-sm">
-                        www.miaueforma.com
+                        www.miaueforma.com.br
                     </a>
                     <p class="text-gray-400 text-sm mt-2">Santa Cruz do Sul – RS</p>
                 </div>
             </div>
 
-            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
-                <p>Feito à mão com carinho.</p>
-                <p class="mt-2 md:mt-0">© 2025 — Feito por @thays.dlima</p>
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-col justify-between items-center text-xs text-gray-400">
+                <p class="mt-2 md:mt-0">Cerâmicas à mão com carinho por <a class="external-link" href="https://www.instagram.com/thays.dlima/" target="_blank">Thaís de Lima</a></p>
+                <p class="mt-2 md:mt-0">Site feito por <a class="external-link" href="https://vitorhumbertoklein.com/" target="_blank" rel="noopener noreferrer">Vitor Humberto Klein</a></p>  
+                <p class="mt-2 md:mt-0">© 2025 Ateliê Miau & Forma</p>  
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
     <script>
         AOS.init({
             once: true,
